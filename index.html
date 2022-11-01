@@ -9,14 +9,17 @@
     <link rel="stylesheet" href="estilos.css">
 </head>
 <body>
-    <h1 class="clase-titulo" id="titulo1">Hola, buenas.</h1>
-    <h3 class="clase-titulo" id="titulo2">Mi nombre es Valentin Bertolussi</h3>
     <header>
+        <h1>Hola, buenas.</h1>
+        <h3>Mi nombre es Valentin Bertolussi</h3>
     </header>
     <section>
-        <div>
-            <input type="text" id="imput1">
-        </div>
+        <select id="selector" onchange="getSelectValue()">
+            <option selected="selected">Seleccione su artículo </option>
+            <option value="35000"> Ventana</option>
+            <option value="50000"> Puerta</option>
+            <option value="85000"> Porton</option>
+          </select>
     </section>
     <footer>
     </footer>

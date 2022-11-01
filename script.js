@@ -19,17 +19,17 @@ let cuotas = parseInt(prompt("elija la cantidad de cuotas que desee. (3 cuotas s
 
 // objetos
 
-function Locales (ciudad, calle, numero) {
+function Locales(ciudad, calle, numero) {
 
     this.ciudad = ciudad;
     this.calle = calle;
     this.numero = numero;
 
 }
-const local1 = new Locales ("Arroyo Seco", "San nicolas", 784)
-const local2 = new Locales ("G.Lagos", "Belgrano", 300)
-console.log (local1)
-console.log (local2)
+const local1 = new Locales("Arroyo Seco", "San nicolas", 784)
+const local2 = new Locales("G.Lagos", "Belgrano", 300)
+console.log(local1)
+console.log(local2)
 
 // arrays
 
@@ -44,7 +44,7 @@ const articulos = [
     { nombre: 'Ventana', precio: 35000 },
     { nombre: 'Puerta', precio: 50000 },
     { nombre: 'Porton', precio: 85000 },
-    
+
 ]
 
 const resultado = articulos.filter((el) => el.nombre.includes('Ventana'))
@@ -79,6 +79,41 @@ if (pregunta !== "si") {
 
 // DOM
 
-const titulo = document.getElementById ("titulo2")
+function getSelectValue() {
+    const selectedValue = document.getElementById
+        ("selector").value;
+    console.log("El precio de este articulo es:", (selectedValue));
+}
 
-titulo. className = ("titulo-nuevo")
+// JSON Y STORAGE
+
+const Artículo1 = "35000";
+const Artículo2 = "50000";
+const Artículo3 = "85000";
+
+localStorage.setItem("Ventana", Artículo1,);
+localStorage.setItem("Puerta", Artículo2,);
+localStorage.setItem("Porton", Artículo3,);
+
+// JSON 1
+console.log (local1,"El local se encuentra en: "["Local"])
+console.log (local1["ciudad"])
+console.log (local1["calle"])
+console.log (local1["numero"])
+
+const local1JSON = JSON.stringify(local1)
+console.log(local1JSON)
+
+// JSON 2
+console.log (local2,"El local se encuentra en: "["Local"])
+console.log (local2["ciudad"])
+console.log (local2["calle"])
+console.log (local2["numero"])
+
+const local2JSON = JSON.stringify(local2)
+console.log(local2JSON)
+
+// EVENTOS 
+Notification.requestPermission().then(function(result) {
+    console.log(result);
+  });
