@@ -1,23 +1,5 @@
-let nombre = prompt("Ingrese (vale) para iniciar, luego pediremos la contraseña")
+// OBJETOS
 
-while (nombre != "vale") {
-    nombre = prompt("Nombre incorrecto, escribalo nuevamente.")
-    alert("Nombre correcto")
-}
-
-let contraseña = prompt("Ingrese la contraseña: 123")
-
-while (contraseña != "123") {
-    contraseña = prompt("Contraseña incorrecta, vuelva a intentarlo escribiendo (123).")
-    alert("Contraseña correcta")
-}
-alert("Muy bien, has ingresado correctamente, a continuación te pediremos unos datos.")
-let localidad = prompt("Ingrese su localidad: ")
-let edad = prompt("Ingrese su edad: ")
-let precio = 50000
-let cuotas = parseInt(prompt("elija la cantidad de cuotas que desee. (3 cuotas sin interes, 6 o 12.)"))
-
-// objetos
 
 function Locales(ciudad, calle, numero) {
 
@@ -28,16 +10,20 @@ function Locales(ciudad, calle, numero) {
 }
 const local1 = new Locales("Arroyo Seco", "San nicolas", 784)
 const local2 = new Locales("G.Lagos", "Belgrano", 300)
+
 console.log(local1)
 console.log(local2)
 
-// arrays
+
+// ARRAYS
+
 
 const total = ["3 cuotas sin interes de", 16666.66, "6 cuotas con interes de", 11250, "12 cuotas con interes de 1.7", 7083.33,]
 
 for (let i = 0; i < 6; i++) {
     console.log(total[i])
 }
+
 
 const articulos = [
 
@@ -54,66 +40,74 @@ console.log(resultado)
 console.log(resultado2)
 
 
-//CONDICIONAL
-
-if (cuotas == "3") {
-    alert("el precio final es de: " + (precio) / 3)
-}
-if (cuotas == "6") {
-    alert("el precio final es de: " + ((precio) * 1.35) / 6)
-}
-if (cuotas == "12") {
-    alert("el precio final es de: " + ((precio) * 1.7) / 12)
-}
-if (cuotas != 3 && cuotas != 6 && cuotas != 12) {
-    alert("Las cuotas permitidas son de 3, 6 y 12. Vuelva a intentar todo de nuevo, gracias.")
-}
-const pregunta = prompt("te está gustando nuestra página? Responder con si o no")
-if (pregunta == "si") {
-    alert("Muchisimas gracias, seguiremos mejorando para que esto siga así")
-
-}
-if (pregunta !== "si") {
-    alert("Muchas gracias, tomaremos tu opinion al respecto.")
-}
-
 // DOM
+
 
 function getSelectValue() {
     const selectedValue = document.getElementById
         ("selector").value;
     console.log("El precio de este articulo es:", (selectedValue));
+    document.getElementById("chau").innerHTML = selectedValue
+    
+}
+function getSelectValue2() {
+    const selectedValue = document.getElementById 
+        ("LocalesD").value;
+    document.getElementById("Lokl").innerHTML = selectedValue
 }
 
-// JSON Y STORAGE
-
-const Artículo1 = "35000";
-const Artículo2 = "50000";
-const Artículo3 = "85000";
-
-localStorage.setItem("Ventana", Artículo1,);
-localStorage.setItem("Puerta", Artículo2,);
-localStorage.setItem("Porton", Artículo3,);
-
-// JSON 1
-console.log (local1,"El local se encuentra en: "["Local"])
-console.log (local1["ciudad"])
-console.log (local1["calle"])
-console.log (local1["numero"])
-
-const local1JSON = JSON.stringify(local1)
-console.log(local1JSON)
-
-// JSON 2
-console.log (local2,"El local se encuentra en: "["Local"])
-console.log (local2["ciudad"])
-console.log (local2["calle"])
-console.log (local2["numero"])
-
-const local2JSON = JSON.stringify(local2)
-console.log(local2JSON)
 
 // EVENTOS 
+
+
 Notification.requestPermission().then(function(result) {
     console.log(result);
   });
+
+
+//   FETCH, PROMESAS Y JSON LOCAL
+
+
+function miFuncion(){
+
+    fetch('archivo.json')
+    .then(response=>response.json())
+    .then(data=>console.log(data));
+}
+
+function miFuncion2(){
+
+    fetch('archivo2.json')
+    .then(response=>response.json())
+    .then(data=>console.log(data));
+}
+
+function miFuncion3(){
+
+    fetch('archivo3.json')
+    .then(response=>response.json())
+    .then(data=>console.log(data));
+}
+
+
+// ASYNC Y PROMIS
+
+
+const horarios = [{
+    id: 1,
+    title: "Horarios de Lunes a Sabados",
+    Horarios: "Lunes a viernes de 8hs a 16hs, Sabados 7hs a 14hs. " 
+}];
+
+const getDatos = () => {
+    return new Promise ((resolve, reject) => {
+        setTimeout(() => {
+            resolve(horarios);
+        }, 2500);
+    })
+}
+ async function fetchingHorarios (){
+    const horariosfetched = await getDatos();
+console.log(horarios);
+}
+fetchingHorarios();
